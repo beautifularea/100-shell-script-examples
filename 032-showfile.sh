@@ -27,3 +27,10 @@ do
 done | more
 
 exit 0
+
+#sed -e '/^$/d' 删除空行 ^代表行首， $代表行末
+#sed -e '/^#/d' 删除#开头的行
+#fmt 文本格式化命令
+#${#line} line 的长度
+#wc -l 行数统计
+#wc -c 字符统计
