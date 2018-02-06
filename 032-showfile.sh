@@ -16,7 +16,7 @@ do
   while read line 
     do
       if [ ${#line} -gt $width ] ; then # ${#line} ---> line's length
-        echo "$line" | fmt | sed -e '1s/^/  /' -e '2,$s/^/+ /'
+        echo "$line" | fmt -w ${width} | sed -e '1s/^/  /' -e '2,$s/^/+ /'
       else
         echo "  $line"
       fi
@@ -36,3 +36,5 @@ exit 0
 #wc -c 字符统计
 
 #sed -e '2, $s/^/+ /' 第二行+ .
+
+# add fmt -w ${width}
