@@ -3,6 +3,7 @@
 # define - given a word, return its definition from dictionary.com
 
 url="http://www.cogsci.princeton.edu/cgi-bin/webwn2.0?stage=1&word="
+url="https://www.merriam-webster.com/dictionary/xxx" #replace xxx to specific word.
 
 if [ $# -ne 1 ] ; then
   echo "Usage: $0 word" >&2 
