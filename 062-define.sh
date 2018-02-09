@@ -25,3 +25,12 @@ lynx -source "$url$1" | \
 )
 
 exit 0
+
+#lynx : a plain-text web browser.
+#[[:digit:]] - 0~9
+#[[:alpha:]] - 字符
+#[[:alnum:]] - 字符数字
+#----》 equal to : `[:digit:]'
+
+#grep -E ; multi regex.
+#${line:0:3} ---> 取最左边的3个字符
