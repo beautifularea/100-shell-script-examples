@@ -16,12 +16,12 @@ bz="bzip2"   ; unbz="bunzip2"     ; bzlist=""
 
 for arg
 do 
-  if [ -f "$arg" ] ; then
+  if [ -f "$arg" ] ; then # -f 是否是常规文件
     case $arg in
        *.Z) $unZ "$arg"
-	    arg="$(echo $arg | sed 's/\.Z$//')"
+	    arg="$(echo $arg | sed 's/\.Z$//')" #
             Zlist="$Zlist \"$arg\""
-	    ;;
+	    ;; #end case branch
 
       *.gz) $ungz "$arg"
 	    arg="$(echo $arg | sed 's/\.gz$//')"
@@ -33,13 +33,15 @@ do
             bzlist="$bzlist \"$arg\""	
 	    ;;
 
-    esac
-  fi
+    esac #end case
+  fi #end if
+  
   newargs="${newargs:-""} \"$arg\""
+  
 done
 
-case $0 in
-  *zcat*  ) eval  cat $newargs			;;
+case $0 in #$0 ，程序名。
+  *zcat*  ) eval  cat $newargs			;; #eval 执行 后面字符串命令 。
   *zmore* ) eval more $newargs			;;
   *zgrep* ) eval grep $newargs			;;
       *   ) echo "$0: unknown base name. Can't proceed." >&2; exit 1
@@ -47,7 +49,7 @@ esac
 
 # now recompress everything
 
-if [ ! -z "$Zlist" ] ; then
+if [ ! -z "$Zlist" ] ; then #-z 字符串长度为0  则为真
  eval $Z $Zlist
 fi
 if [ ! -z "$gzlist" ] ; then
@@ -59,4 +61,16 @@ fi
 
 # and done
 
-exit 0
+exit 0 #退出。
+
+
+//Output Args.
+#Usage:
+#./b.sh aaa bbb 
+#output : aaa
+#         bbb
+for arg
+do
+    echo $arg
+done
+
