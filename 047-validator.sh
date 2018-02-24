@@ -11,6 +11,7 @@ in_path()
   # the IFS input field seperator, but restores it upon completion.
   cmd=$1    path=$2    retval=0
 
+  #IFS的默认值为：空白（包括：空格，tab, 和新行)，将其ASSII码用十六进制打印出来就是：20 09 0a
   oldIFS=$IFS; IFS=":"
 
   for directory in $path 
@@ -19,7 +20,9 @@ in_path()
       retval=1      # if we're here, we found $cmd in $directory
     fi
   done
+  
   IFS=$oldIFS
+  
   return $retval
 }
 
