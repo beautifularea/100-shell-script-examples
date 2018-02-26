@@ -41,7 +41,7 @@ addLetterToWord()
 
 word=$(getword)
 letters=$(echo $word | wc -c | sed 's/[[:space:]]//g')
-letters=$(( $letters - 1 ))	# fix character count to ignore \n
+letters=$(( $letters - 1 ))	# fix character count to ignore \n WHY NOT USE echo -n
 template="$(echo $blank | cut -c1-$letters)"
 remaining=$letters ; guessed="" ; guesses=0; badguesses=0
 
