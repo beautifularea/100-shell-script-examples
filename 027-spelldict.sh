@@ -25,7 +25,7 @@ do
   grep -v '@(#)' | sed "s/\'//g" | \ #grep -v ->反向选择。 sed "s/\'//g" 替换掉'
      awk '{ if (length($0) > 15 && length($2) > 2) print $2 }' | \ 
    grep -vif $okaywords | \ #grep -i 忽略大小写 -f 过滤。
-   grep '[[:lower:]]' | grep -v '[[:digit:]]' | sort -u | \
+   grep '[[:lower:]]' | grep -v '[[:digit:]]' | sort -u | \ #sort -u 去重。
    sed 's/^/   /' > $tempout #行首加空格
  
    if [ -s $tempout ] ; then #-s 大小不为0 ，则为真
