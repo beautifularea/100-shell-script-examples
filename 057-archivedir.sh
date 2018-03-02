@@ -31,6 +31,9 @@ dirsize="$(du -s $1 | awk '{print $1}')" #获取文件的大小！！！
 
 #tr 
 #translate or delete characters
+#echo "abc" | tr '[:lower:]' '[:upper:]'
+#output : ABC
+#tr A B  ， 把A替换成B
 
 #cut
 #remove sections from each line of files
