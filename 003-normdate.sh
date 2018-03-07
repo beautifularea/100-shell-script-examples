@@ -7,20 +7,20 @@ monthnoToName()
 {
   # sets the variable 'month' to the appropriate value
   case $1 in
-    1 ) month="Jan"    ;;  2 ) month="Feb"    ;;
+    1 ) month="Jan"    ;;  2 ) month="Feb"    ;; #;; end
     3 ) month="Mar"    ;;  4 ) month="Apr"    ;;
     5 ) month="May"    ;;  6 ) month="Jun"    ;;
     7 ) month="Jul"    ;;  8 ) month="Aug"    ;;
     9 ) month="Sep"    ;;  10) month="Oct"    ;;
     11) month="Nov"    ;;  12) month="Dec"    ;;
-    * ) echo "$0: Unknown numeric month value $1" >&2; exit 1
-   esac
+    * ) echo "$0: Unknown numeric month value $1" >&2; exit 1 #redirect to error out
+   esac #case reverse : esac
    return 0
 }
 
 ## Begin main script
 
-if [ $# -eq 1 ] ; then	# try to compensate for / or - formats
+if [ $# -eq 1 ] ; then	# try to compensate for / or - formats $# numbers of variables;
   set -- $(echo $1 | sed 's/[\/\-]/ /g')
 fi
 
@@ -42,6 +42,6 @@ else
   month="$month$(echo $1|cut -c2-3 | tr '[:upper:]' '[:lower:]')"
 fi
 
-echo $month $2 $3
+echo $month $2 $3 #echo print 
 
 exit 0
