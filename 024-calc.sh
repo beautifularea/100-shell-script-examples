@@ -6,7 +6,7 @@ scale=2
 
 show_help()
 {
-cat << EOF
+cat << EOF #read from stdin , output stdout. EOF
   In addition to standard math functions, calc also supports
 
   a % b       remainder of a/b
